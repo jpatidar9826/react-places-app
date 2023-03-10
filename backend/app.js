@@ -50,7 +50,9 @@ app.use((error, req, res, next) => {
 mongoose.set("strictQuery", false);
   mongoose
     .connect(
-      "mongodb+srv://admin-jayant:FRto599WoxRiw9rH@atlascluster.lhuatks.mongodb.net/places?retryWrites=true&w=majority"
+      process.env.DATABASE_KEY, {
+        useNewUrlParser: true
+      }
     )
     .then(() => {
       app.listen(5000);
